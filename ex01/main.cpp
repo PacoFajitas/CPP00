@@ -6,7 +6,7 @@
 /*   By: tfiguero <tfiguero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:08:14 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/23 21:44:17 by tfiguero         ###   ########.fr       */
+/*   Updated: 2024/03/24 13:25:26 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,22 @@ int	main()
 	std::cout << "Write ADD, SEARCH or EXIT" << std::endl;
 	while (true)
 	{
-		std::cin >> input;
+		if (!(std::cin >> input)) {
+            if (std::cin.eof()) {
+                std::cout << "End of input reached. Exiting..." << std::endl;
+            } else {
+                std::cerr << "Error reading input. Exiting..." << std::endl;
+            }
+            break;
+		}
 		if (input == "EXIT")
 			return (0);
 		else if (input == "ADD")
+		{
 			phoneBook.AddContact(&contact);
+			if (contact.firstName == "" && contact.lastName == "" && contact.nickname == "" && contact.phoneNumber == "" && contact.darkestSecret == "")
+				phoneBook.AddContact(&contact);
+		}
 		//else if (input == "SEARCH")
 		//	phoneBook.SearchContact(contact);
 	}

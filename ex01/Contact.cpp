@@ -6,7 +6,7 @@
 /*   By: tfiguero <tfiguero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:10:29 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/03/23 21:43:34 by tfiguero         ###   ########.fr       */
+/*   Updated: 2024/03/24 13:23:45 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,14 @@ std::string	Contact::FillContact(std::string printstr)
 	{
 		input.erase();
 		std::cout << printstr << std::endl;
-		if (!std::getline(std::cin, input))
-			break;
+		if (!std::getline(std::cin, input)) {
+            if (std::cin.eof()) 
+                std::cerr << "Por bobo no tienes..."<< printstr << std::endl;
+			return "";
+		}
+		if (input.length() < 1)
+			std::cout << "Please enter a valid input" << std::endl;
+		
 	}
 	return (input);
 }
