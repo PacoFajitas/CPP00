@@ -6,7 +6,7 @@
 /*   By: tfiguero <tfiguero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:08:14 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/24 13:25:26 by tfiguero         ###   ########.fr       */
+/*   Updated: 2024/03/25 23:09:36 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	main()
 		else if (input == "ADD")
 		{
 			phoneBook.AddContact(&contact);
-			if (contact.firstName == "" && contact.lastName == "" && contact.nickname == "" && contact.phoneNumber == "" && contact.darkestSecret == "")
-				phoneBook.AddContact(&contact);
 		}
 		//else if (input == "SEARCH")
 		//	phoneBook.SearchContact(contact);
