@@ -6,7 +6,7 @@
 /*   By: tfiguero <tfiguero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:10:29 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/03/25 23:10:29 by tfiguero         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:34:40 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,30 @@ std::string	Contact::FillContact(std::string printstr)
 	return (input);
 }
 
+void	Contact::DisplayContact(Contact *contact)
+{
+	std::cout << "First Name: " << contact->firstName << std::endl;
+	std::cout << "Last Name: " << contact->lastName << std::endl;
+	std::cout << "Nickname: " << contact->nickname << std::endl;
+	std::cout << "Phone Number: " << contact->phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << contact->darkestSecret << std::endl;
+}
+
+
 void	Contact::NewContact(Contact *contact)
 {
 	std::cout << "Please fill the information as asked below:" << std::endl;
 	contact->firstName = FillContact("First Name: ");
 	contact->lastName = FillContact("Last Name: ");
 	contact->nickname = FillContact("Nickname: ");
+	contact->phoneNumber = FillContact("Phone Number: ");
 	contact->darkestSecret = FillContact("Darkest Secret: ");
 	std::cout << contact->firstName << " " << contact->lastName << " " << contact->nickname << " " << contact->darkestSecret << std::endl;
-	if (contact->firstName == "" || contact->lastName == "" || contact->nickname == "" || contact->darkestSecret == "")
+	if (contact->firstName.length() < 1 || contact->lastName.length() < 1 || contact->nickname.length() < 1 || contact->darkestSecret.length() < 1)
+	{
 		std::cout << "Contact not saved, please fill all the fields" << std::endl;
-	else
-		std::cout << "Contact saved" << std::endl;
+		contact = NULL;
+	}
 }
 
 Contact::~Contact()

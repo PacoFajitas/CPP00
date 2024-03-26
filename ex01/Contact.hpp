@@ -6,7 +6,7 @@
 /*   By: tfiguero <tfiguero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:09:40 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/03/25 23:07:36 by tfiguero         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:46:08 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Contact
 		Contact();
 		std::string	FillContact(std::string printstr);
 		void		NewContact(Contact *contact);
+		void		DisplayContact(Contact *contact);
 		~Contact();
 };
 

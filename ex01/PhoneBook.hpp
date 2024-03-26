@@ -22,7 +22,9 @@ class PhoneBook
 		Contact contacts[8];
 	public:
 		PhoneBook();
-		void AddContact(Contact *contact);
+		void AddContact(PhoneBook *PhoneBook, Contact *contact);
+		void DisplayContacts(PhoneBook *PhoneBook);
+		void SearchContact(PhoneBook *PhoneBook);
 		~PhoneBook();
 };
 
