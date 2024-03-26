@@ -19,12 +19,14 @@
 class PhoneBook
 {
 	private:
-		Contact contacts[8];
+		Contact _contacts[8];
+		int	_index;
 	public:
 		PhoneBook();
-		void AddContact(PhoneBook *PhoneBook, Contact *contact);
+		void AddContact(Contact *contact);
 		void DisplayContacts(PhoneBook *PhoneBook);
 		void SearchContact(PhoneBook *PhoneBook);
+		void initMyIndex(int value);
 		~PhoneBook();
 };
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfiguero <tfiguero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 17:10:29 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/03/26 13:34:40 by tfiguero         ###   ########.fr       */
+/*   Created: 2024/03/26 21:33:40 by tfiguero          #+#    #+#             */
+/*   Updated: 2024/03/26 21:55:40 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,47 @@
 
 Contact::Contact()
 {
-	
+}
+
+std::string Contact::GetValue(Contact *contact, std::string value)
+{
+	if (value == "firstName")
+		return (contact->firstName);
+	else if (value == "lastName")
+		return (contact->lastName);
+	else if (value == "nickname")
+		return (contact->nickname);
+	else if (value == "phoneNumber")
+		return (contact->phoneNumber);
+	else if (value == "darkestSecret")
+		return (contact->darkestSecret);
+	return ("");
 }
 
 std::string	Contact::FillContact(std::string printstr)
 {
 	std::string input;
-	
 
-	std::cout << std::setw(16) << std::left << printstr;
+	std::cout << printstr;
 	while (input.length() < 1)
 	{
-		input.erase();
-		if (!std::getline(std::cin, input))
-			break ;
-		
+		if(!getline(std::cin, input))
+		{
+			std::cout << "End of input reached. Por bobo exiting..." << std::endl;
+			exit(0);
+		}		
 	}
 	return (input);
 }
 
-void	Contact::DisplayContact(Contact *contact)
-{
-	std::cout << "First Name: " << contact->firstName << std::endl;
-	std::cout << "Last Name: " << contact->lastName << std::endl;
-	std::cout << "Nickname: " << contact->nickname << std::endl;
-	std::cout << "Phone Number: " << contact->phoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << contact->darkestSecret << std::endl;
-}
-
-
 void	Contact::NewContact(Contact *contact)
 {
-	std::cout << "Please fill the information as asked below:" << std::endl;
 	contact->firstName = FillContact("First Name: ");
 	contact->lastName = FillContact("Last Name: ");
 	contact->nickname = FillContact("Nickname: ");
 	contact->phoneNumber = FillContact("Phone Number: ");
 	contact->darkestSecret = FillContact("Darkest Secret: ");
-	std::cout << contact->firstName << " " << contact->lastName << " " << contact->nickname << " " << contact->darkestSecret << std::endl;
-	if (contact->firstName.length() < 1 || contact->lastName.length() < 1 || contact->nickname.length() < 1 || contact->darkestSecret.length() < 1)
-	{
-		std::cout << "Contact not saved, please fill all the fields" << std::endl;
-		contact = NULL;
-	}
 }
-
 Contact::~Contact()
 {
-	
 }
